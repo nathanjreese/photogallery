@@ -1,0 +1,16 @@
+/* Watermark.css - global so it works inside LightGallery fullscreen */
+.lg-outer::after {
+  content: "© IndyNathan"; /* Change to your text */
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-0deg); /* center + diagonal */
+  color: rgba(255, 255, 255, 0.2); /* semi-transparent white */
+  font-size: 4vw; /* responsive size */
+  font-weight: bold;
+  white-space: nowrap;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 7999;
+  pointer-events: none; /* don’t block clicks */
+  user-select: none; /* can’t select the text */
+}
