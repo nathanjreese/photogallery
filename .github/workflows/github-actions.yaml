@@ -1,0 +1,28 @@
+name: Build and Deploy
+on: [push] # defaults to master
+# 👇 global env
+env:
+  VITE_TEST_ENV: 'TEST'
+permissions:
+  contents: write
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Install and Build 🔧
+        run: |
+          echo "VITE_TEST_VALUE=33333333" >> .env
+          npm install
+          npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          branch: gh-pages
+        env: 
+          VITE_TEST_VALUE: "222222"
+          
