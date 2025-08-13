@@ -20,6 +20,9 @@ const indy500Images2025 = import.meta.glob<{ default: string }>('./Photos/2025in
 const indyGpImages2025 = import.meta.glob<{ default: string }>('./Photos/2025indygp/*.{jpg,JPG,png}', { eager: true });
 const gatewayImages2025 = import.meta.glob<{ default: string }>('./Photos/2025gateway/*.{jpg,JPG,png}', { eager: true });
 const brickyard400Images2025 = import.meta.glob<{ default: string }>('./Photos/2025brickyard400/*.{jpg,JPG,png}', { eager: true });
+const indy500Images2024 = import.meta.glob<{ default: string }>('./Photos/2024indy500/*.{jpg,JPG,png}', { eager: true });
+const gatewayImages2024 = import.meta.glob<{ default: string }>('./Photos/2024gateway/*.{jpg,JPG,png}', { eager: true });
+const brickyard400Images2024 = import.meta.glob<{ default: string }>('./Photos/2024brickyard400/*.{jpg,JPG,png}', { eager: true });
 
 
 // Map folder names to their images
@@ -28,7 +31,10 @@ const folders: Record<string, Record<string, { default: string }>> = {
   indy5002025: indy500Images2025,
   indygp2025: indyGpImages2025,
   brickyard4002025: brickyard400Images2025,
-  gateway2025: gatewayImages2025// Assuming you have a gateway folder
+  gateway2025: gatewayImages2025,
+  indy500Images2024: indy500Images2024,
+  gateway2024: gatewayImages2024,
+  brickyard4002024: brickyard400Images2024,
 };
 
 function Gallery() {
