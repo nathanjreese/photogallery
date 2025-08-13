@@ -15,24 +15,24 @@ import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
 
 // Import images from folders eagerly
-const stpeteImages = import.meta.glob<{ default: string }>('./Photos/stpete/*.{jpg,JPG,png}', { eager: true });
-const indy500Images = import.meta.glob<{ default: string }>('./Photos/indy500/*.{jpg,JPG,png}', { eager: true });
-const indyGpImages = import.meta.glob<{ default: string }>('./Photos/indygp/*.{jpg,JPG,png}', { eager: true });
-const gatewayImages = import.meta.glob<{ default: string }>('./Photos/gateway/*.{jpg,JPG,png}', { eager: true });
-const brickyard400Images = import.meta.glob<{ default: string }>('./Photos/brickyard400/*.{jpg,JPG,png}', { eager: true });
+const stpeteImages2025 = import.meta.glob<{ default: string }>('./Photos/2025stpete/*.{jpg,JPG,png}', { eager: true });
+const indy500Images2025 = import.meta.glob<{ default: string }>('./Photos/2025indy500/*.{jpg,JPG,png}', { eager: true });
+const indyGpImages2025 = import.meta.glob<{ default: string }>('./Photos/2025indygp/*.{jpg,JPG,png}', { eager: true });
+const gatewayImages2025 = import.meta.glob<{ default: string }>('./Photos/2025gateway/*.{jpg,JPG,png}', { eager: true });
+const brickyard400Images2025 = import.meta.glob<{ default: string }>('./Photos/2025brickyard400/*.{jpg,JPG,png}', { eager: true });
 
 
 // Map folder names to their images
 const folders: Record<string, Record<string, { default: string }>> = {
-  stpete: stpeteImages,
-  indy500: indy500Images,
-  indygp: indyGpImages,
-  brickyard400: brickyard400Images,
-  gateway: gatewayImages// Assuming you have a gateway folder
+  stpete2025: stpeteImages2025,
+  indy5002025: indy500Images2025,
+  indygp2025: indyGpImages2025,
+  brickyard4002025: brickyard400Images2025,
+  gateway2025: gatewayImages2025// Assuming you have a gateway folder
 };
 
 function Gallery() {
-  const [selectedFolder, setSelectedFolder] = useState<'stpete' | 'indy500' | 'roadamerica'>('stpete');
+  const [selectedFolder, setSelectedFolder] = useState<'stpete2025' | 'indy5002025' | 'roadamerica2025'>('stpete2025');
 
   // Get images from the selected folder
   const images = folders[selectedFolder];
@@ -52,14 +52,17 @@ function Gallery() {
         id="folderSelect"
         className='folder-dropdown'
         value={selectedFolder}
-        onChange={(e) => setSelectedFolder(e.target.value as 'stpete' | 'indy500' | 'roadamerica')}
+        onChange={(e) => setSelectedFolder(e.target.value as 'stpete2025' | 'indy5002025' | 'roadamerica2025')}
         style={{ marginBottom: '1rem' }}
       >
-        <option value="stpete">2025 GP of St Pete</option>
-        <option value="indygp">2025 Indy GP</option>
-        <option value="indy500">2025 Indy 500</option>
-        <option value="gateway">2025 Bommarito Auto Group 500</option>
-        <option value="brickyard400">2025 Brickyard 400</option>
+        <option value="stpete2025">2025 GP of St Pete</option>
+        <option value="indygp2025">2025 Indy GP</option>
+        <option value="indy5002025">2025 Indy 500</option>
+        <option value="gateway2025">2025 Bommarito Auto Group 500</option>
+        <option value="brickyard4002025">2025 Brickyard 400</option>
+        <option value="indy5002024">2024 Indy 500</option>
+        <option value="gateway2024">2024 Bommarito Auto Group 500</option>
+
       </select>
 
       <LightGallery
