@@ -1,38 +1,21 @@
-name: Build and Deploy
-
-on:
-  push:
-    branches:
-      - master  # Change to "main" if that's your default branch
-
-env:
-  VITE_TEST_ENV: "TEST"
-
+name: IndyCar secrets
+run-name: IndyCar Driver App 🚀
+on: [push]
 permissions:
   contents: write
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20 # Adjust if using a different Node version
-          cache: npm
-
       - name: Install and Build 🔧
         run: |
-          echo "VITE_TEST_VALUE=33333333" >> .env
-          npm ci
-          npm run build -- --mode production
-
-
+          npm install
+          npm run build
       - name: Deploy 🚀
+        id: deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages       # The branch the action should deploy to
-          folder: dist           # The folder the build output is in
+          folder: dist
+          branch: gh-pages
