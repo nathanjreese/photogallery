@@ -32,7 +32,7 @@ const folders: Record<string, Record<string, { default: string }>> = {
   indygp2025: indyGpImages2025,
   brickyard4002025: brickyard400Images2025,
   gateway2025: gatewayImages2025,
-  indy500Images2024: indy500Images2024,
+  indy5002024: indy500Images2024,
   gateway2024: gatewayImages2024,
   brickyard4002024: brickyard400Images2024,
 };
@@ -68,6 +68,8 @@ function Gallery() {
         <option value="brickyard4002025">2025 Brickyard 400</option>
         <option value="indy5002024">2024 Indy 500</option>
         <option value="gateway2024">2024 Bommarito Auto Group 500</option>
+        <option value="brickyard4002024">2024 Brickyard 400</option>
+
 
       </select>
 
