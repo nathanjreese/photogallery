@@ -1,5 +1,5 @@
 // import { useState } from 'react'
-// import Gallery from './Photos'
+import Gallery from './Photos'
 import './App.css'
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p> */}
-      {/* <Gallery /> */}
+      <Gallery />
     </>
   )
 }
