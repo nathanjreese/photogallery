@@ -27,8 +27,9 @@ jobs:
       - name: Install and Build 🔧
         run: |
           echo "VITE_TEST_VALUE=33333333" >> .env
-          npm install
-          CI=false npm run build
+          npm ci
+          npm run build -- --mode production
+
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
