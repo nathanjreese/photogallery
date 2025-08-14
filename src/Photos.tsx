@@ -23,7 +23,8 @@ const brickyard400Images2025 = import.meta.glob<{ default: string }>('./Photos/2
 const indy500Images2024 = import.meta.glob<{ default: string }>('./Photos/2024indy500/*.{jpg,JPG,png}', { eager: true });
 const gatewayImages2024 = import.meta.glob<{ default: string }>('./Photos/2024gateway/*.{jpg,JPG,png}', { eager: true });
 const brickyard400Images2024 = import.meta.glob<{ default: string }>('./Photos/2024brickyard400/*.{jpg,JPG,png}', { eager: true });
-
+const imsaindyImages2024 = import.meta.glob<{ default: string }>('./Photos/2024imsaindy/*.{jpg,JPG,png}', { eager: true });
+const indy8hour400Images2024 = import.meta.glob<{ default: string }>('./Photos/2024indy8hour/*.{jpg,JPG,png}', { eager: true });
 
 // Map folder names to their images
 const folders: Record<string, Record<string, { default: string }>> = {
@@ -35,6 +36,8 @@ const folders: Record<string, Record<string, { default: string }>> = {
   indy5002024: indy500Images2024,
   gateway2024: gatewayImages2024,
   brickyard4002024: brickyard400Images2024,
+  imsaindy2024: imsaindyImages2024,
+  indy8hour2024: indy8hour400Images2024,
 };
 
 function Gallery() {
@@ -69,6 +72,9 @@ function Gallery() {
         <option value="indy5002024">2024 Indy 500</option>
         <option value="gateway2024">2024 Bommarito Auto Group 500</option>
         <option value="brickyard4002024">2024 Brickyard 400</option>
+        <option value="imsaindy2024">2024 IMSA Battle on the Bricks</option>
+        <option value="indy8hour2024">2024 Indy 8 Hour</option>
+
 
 
       </select>
