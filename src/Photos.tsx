@@ -205,11 +205,11 @@ function Gallery() {
                   onClick={() => setSelectedFolder(gallery.value)}
                 >
                   <img
-                    src={new URL(gallery.cover, import.meta.url).href} // Use the cover property for the album thumbnail
+                    src={gallery.cover} // Use the cover property for the album thumbnail
                     alt={gallery.label}
                     className="album-thumbnail"
                   />
-                  <p>{gallery.label}</p>
+                  <p>{gallery.label}</p> {/* Text overlay */}
                 </div>
               ))}
             </div>

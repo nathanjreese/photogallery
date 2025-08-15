@@ -64,13 +64,23 @@
   justify-items: center;
 }
 
-/* General styles for album thumbnails */
+/* Album container */
+.album {
+  position: relative; /* Make the container a positioned element */
+  display: inline-block;
+  cursor: pointer;
+  width: 100%; /* Ensure the album takes full width */
+  height: auto; /* Let the height match the content (image) */
+  overflow: hidden; /* Ensure no extra space is visible */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  background-color: black; /* Fallback background color */
+}
+
+/* Album thumbnail (image) */
 .album-thumbnail {
-  width: 250px; /* Default width for larger screens */
-  height: 200px; /* Default height */
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  width: 100%; /* Ensure the image fills the container width */
+  max-height: 100%; /* Maintain the image's aspect ratio */
+  object-fit: cover; /* Ensure the image covers the container */
   transition: transform 0.2s ease-in-out;
 }
 
@@ -78,12 +88,35 @@
   transform: scale(1.05); /* Slight zoom effect on hover */
 }
 
-/* Album title styles */
+/* Dark overlay */
+.album::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  z-index: 1; /* Ensure the overlay is above the image */
+  transition: background 0.2s ease-in-out;
+}
+
+.album:hover::before {
+  background: rgba(0, 0, 0, 0.2); /* Lighten the overlay on hover */
+}
+
+/* Text overlay */
 .album p {
-  margin-top: 0.5rem;
-  font-size: 1rem; /* Default font size */
+  position: absolute;
+  bottom: 10px; /* Position the text at the bottom of the image */
+  left: 10px; /* Add some padding from the left */
+  margin: 0;
+  color: white; /* White text for better contrast */
+  font-size: 1rem;
   font-weight: bold;
-  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Add shadow for better readability */
+  z-index: 2; /* Ensure the text is above the overlay */
+  pointer-events: none; /* Prevent the text from blocking clicks */
 }
 
 /* LightGallery title */
@@ -102,7 +135,7 @@
 
   .album-thumbnail {
     width: 200px; /* Adjust thumbnail size for tablets */
-    height: 160px;
+    height: 100%;
   }
 
   .lightgallery-title {
@@ -121,7 +154,7 @@
 
   .album-thumbnail {
     width: 180px; /* Adjust thumbnail size for smaller devices */
-    height: 140px;
+    height: 100%;
   }
 
   .lightgallery-title {
@@ -152,9 +185,14 @@
     grid-template-columns: 1fr; /* 1 album per row for mobile devices */
   }
 
+  .album {
+    width: 100%; /* Ensure the album takes full width on mobile */
+    height: auto; /* Match the height of the image */
+  }
+
   .album-thumbnail {
     width: 100%; /* Full width for mobile devices */
-    height: auto; /* Maintain aspect ratio */
+    height: 100%; /* Maintain aspect ratio */
   }
 
   .lightgallery-title {
