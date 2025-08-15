@@ -55,107 +55,166 @@ const folders: Record<string, Record<string, { default: string }>> = {
 };
 
 // Group events by year
-const galleriesByYear: Record<string, { value: string; label: string }[]> = {
+const galleriesByYear: Record<string, { value: string; label: string; cover: string }[]> = {
   "2025": [
-    { value: "brickyard4002025", label: "2025 Brickyard 400" },
-    { value: "gateway2025", label: "2025 Bommarito Auto Group 500" },
-    { value: "indy5002025", label: "2025 Indianapolis 500" },
-    { value: "indygp2025", label: "2025 Sonsio GP" },
-    { value: "stpete2025", label: "2025 Firestone GP of St Pete" }
+    {
+      value: "stpete2025",
+      label: "2025 Firestone GP of St Pete",
+      cover: "./Photos/2025stpete/IMG_6554.JPG" // Hardcoded cover image
+    },
+    {
+      value: "indygp2025",
+      label: "2025 Sonsio GP",
+      cover: "./Photos/2025indygp/IMG_7751.JPG"
+    },
+    {
+      value: "indy5002025",
+      label: "2025 Indianapolis 500",
+      cover: "./Photos/2025indy500/IMG_8879.JPG"
+    },
+    {
+      value: "gateway2025",
+      label: "2025 Bommarito Auto Group 500",
+      cover: "./Photos/2025gateway/IMG_3322.JPG"
+    },
+    {
+      value: "brickyard4002025",
+      label: "2025 Brickyard 400",
+      cover: "./Photos/2025brickyard400/IMG_4873.JPG"
+    }
   ],
   "2024": [
-    { value: "indy8hour2024", label: "2024 Indianapolis 8 Hour" },
-    { value: "imsaindy2024", label: "2024 IMSA Battle on the Bricks" },
-    { value: "nashville2024", label: "2024 Nashville Music City Grand Prix" },
-    { value: "gateway2024", label: "2024 Bommarito Auto Group 500" },
-    { value: "brickyard4002024", label: "2024 Brickyard 400" },
-    { value: "midohio2024", label: "2024 Honda Indy 200 at Mid-Ohio" },
-    { value: "roadamerica2024", label: "2024 Xpel GP at Road America" },
-    { value: "indy5002024", label: "2024 Indianapolis 500" },
-    { value: "indygp2024", label: "2024 Sonsio GP" },
-    { value: "longbeach2024", label: "2024 Acura GP of Long Beach" },
-    { value: "stpete2024", label: "2024 GP of St Pete" }
+    {
+      value: "stpete2024",
+      label: "2024 GP of St Pete",
+      cover: "./Photos/2024stpete/IMG_1609.JPG"
+    },
+    {
+      value: "longbeach2024",
+      label: "2024 Acura GP of Long Beach",
+      cover: "./Photos/2024longbeach/IMG_5024.JPG"
+    },
+    {
+      value: "indygp2024",
+      label: "2024 Sonsio GP",
+      cover: "./Photos/2024indygp/IMG_5336.JPG"
+    },
+    {
+      value: "indy5002024",
+      label: "2024 Indianapolis 500",
+      cover: "./Photos/2024indy500/IMG_6177.JPG"
+    },
+    {
+      value: "roadamerica2024",
+      label: "2024 Xpel GP at Road America",
+      cover: "./Photos/2024roadamerica/IMG_8534.JPG"
+    },
+    {
+      value: "midohio2024",
+      label: "2024 Honda Indy 200 at Mid-Ohio",
+      cover: "./Photos/2024midohio/Pato2.JPG"
+    },
+    {
+      value: "brickyard4002024",
+      label: "2024 Brickyard 400",
+      cover: "./Photos/2024brickyard400/IMG_0048.JPG"
+    },
+    {
+      value: "gateway2024",
+      label: "2024 Bommarito Auto Group 500",
+      cover: "./Photos/2024gateway/IMG_1699.JPG"
+    },
+    {
+      value: "nashville2024",
+      label: "2024 Nashville Music City Grand Prix",
+      cover: "./Photos/2024nashville/IMG_9999.JPG"
+    },
+    {
+      value: "imsaindy2024",
+      label: "2024 IMSA Battle on the Bricks",
+      cover: "./Photos/2024imsaindy/IMG_2611.JPG"
+    },
+    {
+      value: "indy8hour2024",
+      label: "2024 Indianapolis 8 Hour",
+      cover: "./Photos/2024indy8hour/IMG_2816.JPG"
+    }
   ]
 };
 
 function Gallery() {
-  const [selectedYear, setSelectedYear] = useState<keyof typeof galleriesByYear>("2025");
-  const [selectedFolder, setSelectedFolder] = useState<string>(galleriesByYear["2025"][0].value);
+  const [selectedFolder, setSelectedFolder] = useState<string | null>(null);
 
-  const images = folders[selectedFolder];
-  const imageArray: string[] = Object.values(images).map((img) => img.default);
+  if (selectedFolder) {
+    const selectedGallery = Object.values(galleriesByYear)
+      .flat()
+      .find((gallery) => gallery.value === selectedFolder);
 
-  const onInit = (detail: any) => {
-    console.log('lightGallery initialized');
-    const galleryElement = detail.instance.$container.get();
-    galleryElement.addEventListener('contextmenu', (e: Event) => e.preventDefault());
-  };
+    const images = folders[selectedFolder];
+    const imageArray: string[] = Object.values(images).map((img) => img.default);
+
+    return (
+      <div>
+        <div className="back-button-container">
+          <button
+            className="back-button"
+            onClick={() => setSelectedFolder(null)}
+          >
+            Back to Albums
+          </button>
+        </div>
+        <h1 className="lightgallery-title">{selectedGallery?.label}</h1>
+        <LightGallery
+          onInit={(detail) => {
+            console.log('lightGallery initialized');
+            const galleryElement = detail.instance.$container.get();
+            galleryElement.addEventListener('contextmenu', (e: Event) => e.preventDefault());
+          }}
+          speed={500}
+          plugins={[lgThumbnail, lgZoom]}
+          download={false}
+          key={selectedFolder}
+        >
+          {imageArray.map((src, index) => (
+            <a key={index} href={src}>
+              <img
+                className="thumbnail"
+                alt={`${selectedFolder}-img-${index}`}
+                src={src}
+                onContextMenu={(e) => e.preventDefault()}
+              />
+            </a>
+          ))}
+        </LightGallery>
+      </div>
+    );
+  }
 
   return (
-    <div className="app">
-      {/* Year Dropdown */}
-      <div>
-      <label htmlFor="yearSelect" className='folder-select'>Select Year: </label>
-      <select
-        id="yearSelect"
-        className="folder-dropdown"
-        value={selectedYear}
-        onChange={(e) => {
-            const newYear = e.target.value as keyof typeof galleriesByYear;
-            setSelectedYear(newYear);
-            setSelectedFolder(galleriesByYear[newYear][0].value);
-        }}
-        style={{
-            marginBottom: '1.5rem', // increased space after year dropdown
-            fontSize: '1.05rem',
-            padding: '0.4rem',
-        }}
-        >
-        {Object.keys(galleriesByYear)
-          .sort((a, b) => Number(b) - Number(a)) // oldest first
-          .map((year) => (
-            <option key={year} value={year}>
-              {year}
-            </option>
-          ))}
-      </select>
-      </div>
-
-      {/* Event Dropdown */}
-      <label htmlFor="eventSelect" className='folder-select'>Select Event: </label>
-      <select
-        id="eventSelect"
-        className="folder-dropdown"
-        value={selectedFolder}
-        onChange={(e) => setSelectedFolder(e.target.value)}
-        style={{ marginBottom: '1rem' }}
-      >
-        {galleriesByYear[selectedYear].map((gallery) => (
-          <option key={gallery.value} value={gallery.value}>
-            {gallery.label}
-          </option>
+    <div className="album-links">
+      {Object.entries(galleriesByYear)
+        .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
+        .map(([year, galleries]) => (
+          <div key={year}>
+            <h2>{year}</h2>
+            <div className="albums">
+              {galleries.map((gallery) => (
+                <div
+                  key={gallery.value}
+                  className="album"
+                  onClick={() => setSelectedFolder(gallery.value)}
+                >
+                  <img
+                    src={new URL(gallery.cover, import.meta.url).href} // Use the cover property for the album thumbnail
+                    alt={gallery.label}
+                    className="album-thumbnail"
+                  />
+                  <p>{gallery.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         ))}
-      </select>
-
-      {/* LightGallery */}
-      <LightGallery
-        onInit={onInit}
-        speed={500}
-        plugins={[lgThumbnail, lgZoom]}
-        download={false}
-        key={selectedFolder}
-      >
-        {imageArray.map((src, index) => (
-          <a key={index} href={src}>
-            <img
-              className="thumbnail"
-              alt={`${selectedFolder}-img-${index}`}
-              src={src}
-              onContextMenu={(e) => e.preventDefault()}
-            />
-          </a>
-        ))}
-      </LightGallery>
     </div>
   );
 }

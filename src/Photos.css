@@ -1,14 +1,29 @@
+/* LightGallery container */
+.lightgallery {
+  max-width: 100%; /* Ensure the gallery does not exceed the window width */
+  margin: 0 auto; /* Center the gallery horizontally */
+  padding: 0 1rem; /* Add padding for better spacing on smaller screens */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center; /* Center the images within the gallery */
+  box-sizing: border-box; /* Include padding in width calculations */
+}
 
+/* General styles for gallery thumbnails */
 .thumbnail {
   width: 22em;
   padding: 0px 3px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
 }
-.lightgallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
-  font-size: calc(11px + 1vw);
+
+.thumbnail:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
 }
+
 .folder-select {
   margin-bottom: 1em;
   margin-left: 1.2em;
@@ -25,12 +40,165 @@
 .lg-outer::after {
   content: "© IndyNathan"; /* 🔹 Change to your brand name */
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: 20px; /* Default position for larger screens */
+  left: 20px; /* Always 20px from the left */
   color: rgba(255, 255, 255, 0.8);
   font-size: 18px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
   z-index: 9999;
   pointer-events: none; /* Don't block clicks */
+}
+
+.album-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Album container */
+.albums {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 albums per row on larger screens */
+  gap: 2rem;
+  justify-items: center;
+}
+
+/* General styles for album thumbnails */
+.album-thumbnail {
+  width: 250px; /* Default width for larger screens */
+  height: 200px; /* Default height */
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+}
+
+.album-thumbnail:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Album title styles */
+.album p {
+  margin-top: 0.5rem;
+  font-size: 1rem; /* Default font size */
+  font-weight: bold;
+  text-align: center;
+}
+
+/* LightGallery title */
+.lightgallery-title {
+  text-align: center;
+  font-size: 2rem; /* Default font size for larger screens */
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 1024px) {
+  .albums {
+    grid-template-columns: repeat(3, 1fr); /* 3 albums per row for tablets */
+  }
+
+  .album-thumbnail {
+    width: 200px; /* Adjust thumbnail size for tablets */
+    height: 160px;
+  }
+
+  .lightgallery-title {
+    font-size: 1.8rem; /* Adjust title font size for tablets */
+  }
+
+  .album p {
+    font-size: 0.95rem; /* Adjust font size for album titles */
+  }
+}
+
+@media (max-width: 768px) {
+  .albums {
+    grid-template-columns: repeat(2, 1fr); /* 2 albums per row for smaller devices */
+  }
+
+  .album-thumbnail {
+    width: 180px; /* Adjust thumbnail size for smaller devices */
+    height: 140px;
+  }
+
+  .lightgallery-title {
+    font-size: 1.5rem; /* Adjust title font size for smaller devices */
+  }
+
+  .album p {
+    font-size: 0.9rem; /* Adjust font size for album titles */
+  }
+
+  .lightgallery {
+    padding: 0 0.5rem; /* Reduce padding for smaller screens */
+  }
+
+  .thumbnail {
+    width: 18em; /* Adjust thumbnail size for smaller devices */
+  }
+
+  .lg-outer::after {
+    font-size: 16px; /* Slightly smaller font size for tablets */
+    bottom: 15px; /* Adjust position for smaller screens */
+    left: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .albums {
+    grid-template-columns: 1fr; /* 1 album per row for mobile devices */
+  }
+
+  .album-thumbnail {
+    width: 100%; /* Full width for mobile devices */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .lightgallery-title {
+    font-size: 1.2rem; /* Adjust title font size for mobile devices */
+  }
+
+  .album p {
+    font-size: 0.85rem; /* Adjust font size for album titles */
+  }
+
+  .lightgallery {
+    padding: 0; /* Remove padding for very small screens */
+  }
+
+  .thumbnail {
+    width: 100%; /* Full width for mobile devices */
+  }
+
+  .lg-outer::after {
+    font-size: 14px; /* Smaller font size for mobile devices */
+    bottom: 10px; /* Adjust position for mobile devices */
+    left: 10px;
+  }
+}
+
+/* Back button container */
+.back-button-container {
+  text-align: center; /* Align the button to the left */
+
+}
+
+.back-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
 }

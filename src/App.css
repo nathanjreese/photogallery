@@ -40,3 +40,50 @@
 .read-the-docs {
   color: #888;
 }
+
+/* General styles for the main heading */
+h1 {
+  font-size: 2.5rem; /* Default font size for larger screens */
+  text-align: center;
+  margin: 1rem 0;
+  color: #333;
+}
+
+/* General styles for the subheading */
+h3 {
+  font-size: 1.5rem; /* Default font size for larger screens */
+  text-align: center;
+  margin: 0.5rem 0 2rem 0;
+  color: #555;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 2rem; /* Adjust font size for tablets */
+  }
+
+  h3 {
+    font-size: 1.3rem; /* Adjust font size for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem; /* Adjust font size for smaller devices */
+  }
+
+  h3 {
+    font-size: 1.2rem; /* Adjust font size for smaller devices */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem; /* Adjust font size for mobile devices */
+  }
+
+  h3 {
+    font-size: 1rem; /* Adjust font size for mobile devices */
+  }
+}
