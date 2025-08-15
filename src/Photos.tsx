@@ -92,9 +92,10 @@ function Gallery() {
   };
 
   return (
-    <div className="folder-select">
+    <div className="app">
       {/* Year Dropdown */}
-      <label htmlFor="yearSelect">Select Year: </label>
+      <div>
+      <label htmlFor="yearSelect" className='folder-select'>Select Year: </label>
       <select
         id="yearSelect"
         className="folder-dropdown"
@@ -118,9 +119,10 @@ function Gallery() {
             </option>
           ))}
       </select>
+      </div>
 
       {/* Event Dropdown */}
-      <label htmlFor="eventSelect">Select Event: </label>
+      <label htmlFor="eventSelect" className='folder-select'>Select Event: </label>
       <select
         id="eventSelect"
         className="folder-dropdown"

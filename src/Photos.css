@@ -7,14 +7,14 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
+  font-size: calc(11px + 1vw);
 }
 .folder-select {
   margin-bottom: 1em;
-  font-size: 1.2em;
-
-  label {
-    padding: 0 5px 0 30px;
-  }
+  margin-left: 1.2em;
+}
+.label {
+  padding: 0 5px 0 30px;
 }
 .folder-dropdown {
   padding: 0.5em;
