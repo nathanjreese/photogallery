@@ -60,84 +60,84 @@ const galleriesByYear: Record<string, { value: string; label: string; cover: str
     {
       value: "stpete2025",
       label: "2025 Firestone GP of St Pete",
-      cover: Object.values(stpeteImages2025)[0]?.default // Dynamically use the first image
+      cover: "/Photos/IMG_0061.JPG" // Hardcoded cover image
     },
     {
       value: "indygp2025",
       label: "2025 Sonsio GP",
-      cover: Object.values(indyGpImages2025)[0]?.default
+      cover: "./Photos/2025indygp/IMG_7751.JPG"
     },
     {
       value: "indy5002025",
       label: "2025 Indianapolis 500",
-      cover: Object.values(indy500Images2025)[0]?.default
+      cover: "./Photos/2025indy500/IMG_8879.JPG"
     },
     {
       value: "gateway2025",
       label: "2025 Bommarito Auto Group 500",
-      cover: Object.values(gatewayImages2025)[0]?.default
+      cover: "./Photos/2025gateway/IMG_3322.JPG"
     },
     {
       value: "brickyard4002025",
       label: "2025 Brickyard 400",
-      cover: Object.values(brickyard400Images2025)[0]?.default
+      cover: "./Photos/2025brickyard400/IMG_4873.JPG"
     }
   ],
   "2024": [
     {
       value: "stpete2024",
       label: "2024 GP of St Pete",
-      cover: Object.values(stpeteImages2024)[0]?.default
+      cover: "./Photos/2024stpete/IMG_1609.JPG"
     },
     {
       value: "longbeach2024",
       label: "2024 Acura GP of Long Beach",
-      cover: Object.values(longbeachImages2024)[0]?.default
+      cover: "./Photos/2024longbeach/IMG_5024.JPG"
     },
     {
       value: "indygp2024",
       label: "2024 Sonsio GP",
-      cover: Object.values(indygpImages2024)[0]?.default
+      cover: "./Photos/2024indygp/IMG_5336.JPG"
     },
     {
       value: "indy5002024",
       label: "2024 Indianapolis 500",
-      cover: Object.values(indy500Images2024)[0]?.default
+      cover: "./Photos/2024indy500/IMG_6177.JPG"
     },
     {
       value: "roadamerica2024",
       label: "2024 Xpel GP at Road America",
-      cover: Object.values(roadamericaImages2024)[0]?.default
+      cover: "./Photos/2024roadamerica/IMG_8534.JPG"
     },
     {
       value: "midohio2024",
       label: "2024 Honda Indy 200 at Mid-Ohio",
-      cover: Object.values(midohioImages2024)[0]?.default
+      cover: "./Photos/2024midohio/Pato2.JPG"
     },
     {
       value: "brickyard4002024",
       label: "2024 Brickyard 400",
-      cover: Object.values(brickyard400Images2024)[0]?.default
+      cover: "./Photos/2024brickyard400/IMG_0048.JPG"
     },
     {
       value: "gateway2024",
       label: "2024 Bommarito Auto Group 500",
-      cover: Object.values(gatewayImages2024)[0]?.default
+      cover: "./Photos/2024gateway/IMG_1699.JPG"
     },
     {
       value: "nashville2024",
       label: "2024 Nashville Music City Grand Prix",
-      cover: Object.values(nashvilleImages2024)[0]?.default
+      cover: "./Photos/2024nashville/IMG_9999.JPG"
     },
     {
       value: "imsaindy2024",
       label: "2024 IMSA Battle on the Bricks",
-      cover: Object.values(imsaindyImages2024)[0]?.default
+      cover: "./Photos/2024imsaindy/IMG_2611.JPG"
     },
     {
       value: "indy8hour2024",
       label: "2024 Indianapolis 8 Hour",
-      cover: Object.values(indy8hourImages2024)[0]?.default
+      cover: "./Photos/2024indy8hour/IMG_2816.JPG"
     }
   ]
 };
