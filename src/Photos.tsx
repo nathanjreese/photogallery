@@ -20,14 +20,15 @@ const indy500Images2025 = import.meta.glob<{ default: string }>('./Photos/2025in
 const indyGpImages2025 = import.meta.glob<{ default: string }>('./Photos/2025indygp/*.{jpg,JPG,png}', { eager: true });
 const gatewayImages2025 = import.meta.glob<{ default: string }>('./Photos/2025gateway/*.{jpg,JPG,png}', { eager: true });
 const brickyard400Images2025 = import.meta.glob<{ default: string }>('./Photos/2025brickyard400/*.{jpg,JPG,png}', { eager: true });
+
 const indy500Images2024 = import.meta.glob<{ default: string }>('./Photos/2024indy500/*.{jpg,JPG,png}', { eager: true });
 const gatewayImages2024 = import.meta.glob<{ default: string }>('./Photos/2024gateway/*.{jpg,JPG,png}', { eager: true });
 const brickyard400Images2024 = import.meta.glob<{ default: string }>('./Photos/2024brickyard400/*.{jpg,JPG,png}', { eager: true });
 const imsaindyImages2024 = import.meta.glob<{ default: string }>('./Photos/2024imsaindy/*.{jpg,JPG,png}', { eager: true });
-const indy8hour400Images2024 = import.meta.glob<{ default: string }>('./Photos/2024indy8hour/*.{jpg,JPG,png}', { eager: true });
+const indy8hourImages2024 = import.meta.glob<{ default: string }>('./Photos/2024indy8hour/*.{jpg,JPG,png}', { eager: true });
 const longbeachImages2024 = import.meta.glob<{ default: string }>('./Photos/2024longbeach/*.{jpg,JPG,png}', { eager: true });
 const nashvilleImages2024 = import.meta.glob<{ default: string }>('./Photos/2024nashville/*.{jpg,JPG,png}', { eager: true });
-const roadamerciaImages2024 = import.meta.glob<{ default: string }>('./Photos/2024roadamerica/*.{jpg,JPG,png}', { eager: true });
+const roadamericaImages2024 = import.meta.glob<{ default: string }>('./Photos/2024roadamerica/*.{jpg,JPG,png}', { eager: true });
 const indygpImages2024 = import.meta.glob<{ default: string }>('./Photos/2024indygp/*.{jpg,JPG,png}', { eager: true });
 const midohioImages2024 = import.meta.glob<{ default: string }>('./Photos/2024midohio/*.{jpg,JPG,png}', { eager: true });
 const stpeteImages2024 = import.meta.glob<{ default: string }>('./Photos/2024stpete/*.{jpg,JPG,png}', { eager: true });
@@ -39,70 +40,108 @@ const folders: Record<string, Record<string, { default: string }>> = {
   indygp2025: indyGpImages2025,
   brickyard4002025: brickyard400Images2025,
   gateway2025: gatewayImages2025,
+
   indy5002024: indy500Images2024,
   gateway2024: gatewayImages2024,
   brickyard4002024: brickyard400Images2024,
   imsaindy2024: imsaindyImages2024,
-  indy8hour2024: indy8hour400Images2024,
+  indy8hour2024: indy8hourImages2024,
   longbeach2024: longbeachImages2024,
   nashville2024: nashvilleImages2024,
-  roadamerica2024: roadamerciaImages2024,
+  roadamerica2024: roadamericaImages2024,
   indygp2024: indygpImages2024,
   midohio2024: midohioImages2024,
   stpete2024: stpeteImages2024
 };
 
-function Gallery() {
-  const [selectedFolder, setSelectedFolder] = useState<'stpete2025' | 'indy5002025' | 'roadamerica2025'>('stpete2025');
+// Group events by year
+const galleriesByYear: Record<string, { value: string; label: string }[]> = {
+  "2025": [
+    { value: "brickyard4002025", label: "2025 Brickyard 400" },
+    { value: "gateway2025", label: "2025 Bommarito Auto Group 500" },
+    { value: "indy5002025", label: "2025 Indy 500" },
+    { value: "indygp2025", label: "2025 Indy GP" },
+    { value: "stpete2025", label: "2025 GP of St Pete" }
+  ],
+  "2024": [
+    { value: "indy8hour2024", label: "2024 Indy 8 Hour" },
+    { value: "imsaindy2024", label: "2024 IMSA Battle on the Bricks" },
+    { value: "nashville2024", label: "2024 Nashville Music City Grand Prix" },
+    { value: "gateway2024", label: "2024 Bommarito Auto Group 500" },
+    { value: "brickyard4002024", label: "2024 Brickyard 400" },
+    { value: "midohio2024", label: "2024 Mid-Ohio" },
+    { value: "roadamerica2024", label: "2024 Road America" },
+    { value: "indy5002024", label: "2024 Indy 500" },
+    { value: "indygp2024", label: "2024 Indy GP" },
+    { value: "longbeach2024", label: "2024 Long Beach Grand Prix" },
+    { value: "stpete2024", label: "2024 GP of St Pete" }
+  ]
+};
 
-  // Get images from the selected folder
+function Gallery() {
+  const [selectedYear, setSelectedYear] = useState<keyof typeof galleriesByYear>("2025");
+  const [selectedFolder, setSelectedFolder] = useState<string>(galleriesByYear["2025"][0].value);
+
   const images = folders[selectedFolder];
   const imageArray: string[] = Object.values(images).map((img) => img.default);
 
   const onInit = (detail: any) => {
     console.log('lightGallery initialized');
-
     const galleryElement = detail.instance.$container.get();
     galleryElement.addEventListener('contextmenu', (e: Event) => e.preventDefault());
   };
 
   return (
-    <div className="App">
-      <label className="folder-select" htmlFor="folderSelect">Select Gallery: </label>
+    <div className="folder-select">
+      {/* Year Dropdown */}
+      <label htmlFor="yearSelect">Select Year: </label>
       <select
-        id="folderSelect"
-        className='folder-dropdown'
-        value={selectedFolder}
-        onChange={(e) => setSelectedFolder(e.target.value as 'stpete2025' | 'indy5002025' | 'roadamerica2025')}
-        style={{ marginBottom: '1rem' }}
-      >
-        <option value="brickyard4002025">2025 Brickyard 400</option>
-        <option value="gateway2025">2025 Bommarito Auto Group 500</option>
-        <option value="indy5002025">2025 Indy 500</option>
-        <option value="indygp2025">2025 Indy GP</option>
-        <option value="stpete2025">2025 GP of St Pete</option>
-        <option value="indy8hour2024">2024 Indy 8 Hour</option>
-        <option value="imsaindy2024">2024 IMSA Battle on the Bricks</option>
-        <option value="nashville2024">2024 Nashville Music City Grand Prix</option>
-        <option value="gateway2024">2024 Bommarito Auto Group 500</option>
-        <option value="brickyard4002024">2024 Brickyard 400</option>
-        <option value="midohio2024">2024 Mid-Ohio</option>
-        <option value="roadamerica2024">2024 Road America</option>
-        <option value="indy5002024">2024 Indy 500</option>
-        <option value="indygp2024">2024 Indy GP</option>
-        <option value="longbeach2024">2024 Long Beach Grand Prix</option>
-        <option value="stpete2024">2024 GP of St Pete</option>
-
-
-
+        id="yearSelect"
+        className="folder-dropdown"
+        value={selectedYear}
+        onChange={(e) => {
+            const newYear = e.target.value as keyof typeof galleriesByYear;
+            setSelectedYear(newYear);
+            setSelectedFolder(galleriesByYear[newYear][0].value);
+        }}
+        style={{
+            marginBottom: '1.5rem', // increased space after year dropdown
+            fontSize: '1.05rem',
+            padding: '0.4rem',
+        }}
+        >
+        {Object.keys(galleriesByYear)
+          .sort((a, b) => Number(b) - Number()) // oldest first
+          .map((year) => (
+            <option key={year} value={year}>
+              {year}
+            </option>
+          ))}
       </select>
 
+      {/* Event Dropdown */}
+      <label htmlFor="eventSelect">Select Event: </label>
+      <select
+        id="eventSelect"
+        className="folder-dropdown"
+        value={selectedFolder}
+        onChange={(e) => setSelectedFolder(e.target.value)}
+        style={{ marginBottom: '1rem' }}
+      >
+        {galleriesByYear[selectedYear].map((gallery) => (
+          <option key={gallery.value} value={gallery.value}>
+            {gallery.label}
+          </option>
+        ))}
+      </select>
+
+      {/* LightGallery */}
       <LightGallery
         onInit={onInit}
         speed={500}
         plugins={[lgThumbnail, lgZoom]}
-        download={false} // Hide download button
-        key={selectedFolder} // force re-init when folder changes
+        download={false}
+        key={selectedFolder}
       >
         {imageArray.map((src, index) => (
           <a key={index} href={src}>
@@ -110,7 +149,7 @@ function Gallery() {
               className="thumbnail"
               alt={`${selectedFolder}-img-${index}`}
               src={src}
-              onContextMenu={(e) => e.preventDefault()} // block right-click on thumbnails
+              onContextMenu={(e) => e.preventDefault()}
             />
           </a>
         ))}
