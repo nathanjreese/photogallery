@@ -30,6 +30,7 @@ const nashvilleImages2024 = import.meta.glob<{ default: string }>('./Photos/2024
 const roadamerciaImages2024 = import.meta.glob<{ default: string }>('./Photos/2024roadamerica/*.{jpg,JPG,png}', { eager: true });
 const indygpImages2024 = import.meta.glob<{ default: string }>('./Photos/2024indygp/*.{jpg,JPG,png}', { eager: true });
 const midohioImages2024 = import.meta.glob<{ default: string }>('./Photos/2024midohio/*.{jpg,JPG,png}', { eager: true });
+const stpeteImages2024 = import.meta.glob<{ default: string }>('./Photos/2024stpete/*.{jpg,JPG,png}', { eager: true });
 
 // Map folder names to their images
 const folders: Record<string, Record<string, { default: string }>> = {
@@ -48,6 +49,7 @@ const folders: Record<string, Record<string, { default: string }>> = {
   roadamerica2024: roadamerciaImages2024,
   indygp2024: indygpImages2024,
   midohio2024: midohioImages2024,
+  stpete2024: stpeteImages2024
 };
 
 function Gallery() {
@@ -74,21 +76,22 @@ function Gallery() {
         onChange={(e) => setSelectedFolder(e.target.value as 'stpete2025' | 'indy5002025' | 'roadamerica2025')}
         style={{ marginBottom: '1rem' }}
       >
-        <option value="stpete2025">2025 GP of St Pete</option>
-        <option value="indygp2025">2025 Indy GP</option>
-        <option value="indy5002025">2025 Indy 500</option>
-        <option value="gateway2025">2025 Bommarito Auto Group 500</option>
         <option value="brickyard4002025">2025 Brickyard 400</option>
-        <option value="indy5002024">2024 Indy 500</option>
+        <option value="gateway2025">2025 Bommarito Auto Group 500</option>
+        <option value="indy5002025">2025 Indy 500</option>
+        <option value="indygp2025">2025 Indy GP</option>
+        <option value="stpete2025">2025 GP of St Pete</option>
+        <option value="indy8hour2024">2024 Indy 8 Hour</option>
+        <option value="imsaindy2024">2024 IMSA Battle on the Bricks</option>
+        <option value="nashville2024">2024 Nashville Music City Grand Prix</option>
         <option value="gateway2024">2024 Bommarito Auto Group 500</option>
         <option value="brickyard4002024">2024 Brickyard 400</option>
-        <option value="imsaindy2024">2024 IMSA Battle on the Bricks</option>
-        <option value="indy8hour2024">2024 Indy 8 Hour</option>
-        <option value="longbeach2024">2024 Long Beach Grand Prix</option>
-        <option value="nashville2024">2024 Nashville Music City Grand Prix</option>
-        <option value="roadamerica2024">2024 Road America</option>
-        <option value="indygp2024">2024 Indy GP</option>
         <option value="midohio2024">2024 Mid-Ohio</option>
+        <option value="roadamerica2024">2024 Road America</option>
+        <option value="indy5002024">2024 Indy 500</option>
+        <option value="indygp2024">2024 Indy GP</option>
+        <option value="longbeach2024">2024 Long Beach Grand Prix</option>
+        <option value="stpete2024">2024 GP of St Pete</option>
 
 
 
