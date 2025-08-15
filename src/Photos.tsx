@@ -59,21 +59,21 @@ const galleriesByYear: Record<string, { value: string; label: string }[]> = {
   "2025": [
     { value: "brickyard4002025", label: "2025 Brickyard 400" },
     { value: "gateway2025", label: "2025 Bommarito Auto Group 500" },
-    { value: "indy5002025", label: "2025 Indy 500" },
-    { value: "indygp2025", label: "2025 Indy GP" },
-    { value: "stpete2025", label: "2025 GP of St Pete" }
+    { value: "indy5002025", label: "2025 Indianapolis 500" },
+    { value: "indygp2025", label: "2025 Sonsio GP" },
+    { value: "stpete2025", label: "2025 Firestone GP of St Pete" }
   ],
   "2024": [
-    { value: "indy8hour2024", label: "2024 Indy 8 Hour" },
+    { value: "indy8hour2024", label: "2024 Indianapolis 8 Hour" },
     { value: "imsaindy2024", label: "2024 IMSA Battle on the Bricks" },
     { value: "nashville2024", label: "2024 Nashville Music City Grand Prix" },
     { value: "gateway2024", label: "2024 Bommarito Auto Group 500" },
     { value: "brickyard4002024", label: "2024 Brickyard 400" },
-    { value: "midohio2024", label: "2024 Mid-Ohio" },
-    { value: "roadamerica2024", label: "2024 Road America" },
-    { value: "indy5002024", label: "2024 Indy 500" },
-    { value: "indygp2024", label: "2024 Indy GP" },
-    { value: "longbeach2024", label: "2024 Long Beach Grand Prix" },
+    { value: "midohio2024", label: "2024 Honda Indy 200 at Mid-Ohio" },
+    { value: "roadamerica2024", label: "2024 Xpel GP at Road America" },
+    { value: "indy5002024", label: "2024 Indianapolis 500" },
+    { value: "indygp2024", label: "2024 Sonsio GP" },
+    { value: "longbeach2024", label: "2024 Acura GP of Long Beach" },
     { value: "stpete2024", label: "2024 GP of St Pete" }
   ]
 };
