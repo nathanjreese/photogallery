@@ -111,7 +111,7 @@ function Gallery() {
         }}
         >
         {Object.keys(galleriesByYear)
-          .sort((a, b) => Number(b) - Number()) // oldest first
+          .sort((a, b) => Number(b) - Number(a)) // oldest first
           .map((year) => (
             <option key={year} value={year}>
               {year}
