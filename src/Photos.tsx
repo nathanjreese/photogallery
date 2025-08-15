@@ -25,6 +25,11 @@ const gatewayImages2024 = import.meta.glob<{ default: string }>('./Photos/2024ga
 const brickyard400Images2024 = import.meta.glob<{ default: string }>('./Photos/2024brickyard400/*.{jpg,JPG,png}', { eager: true });
 const imsaindyImages2024 = import.meta.glob<{ default: string }>('./Photos/2024imsaindy/*.{jpg,JPG,png}', { eager: true });
 const indy8hour400Images2024 = import.meta.glob<{ default: string }>('./Photos/2024indy8hour/*.{jpg,JPG,png}', { eager: true });
+const longbeachImages2024 = import.meta.glob<{ default: string }>('./Photos/2024longbeach/*.{jpg,JPG,png}', { eager: true });
+const nashvilleImages2024 = import.meta.glob<{ default: string }>('./Photos/2024nashville/*.{jpg,JPG,png}', { eager: true });
+const roadamerciaImages2024 = import.meta.glob<{ default: string }>('./Photos/2024roadamerica/*.{jpg,JPG,png}', { eager: true });
+const indygpImages2024 = import.meta.glob<{ default: string }>('./Photos/2024indygp/*.{jpg,JPG,png}', { eager: true });
+const midohioImages2024 = import.meta.glob<{ default: string }>('./Photos/2024midohio/*.{jpg,JPG,png}', { eager: true });
 
 // Map folder names to their images
 const folders: Record<string, Record<string, { default: string }>> = {
@@ -38,6 +43,11 @@ const folders: Record<string, Record<string, { default: string }>> = {
   brickyard4002024: brickyard400Images2024,
   imsaindy2024: imsaindyImages2024,
   indy8hour2024: indy8hour400Images2024,
+  longbeach2024: longbeachImages2024,
+  nashville2024: nashvilleImages2024,
+  roadamerica2024: roadamerciaImages2024,
+  indygp2024: indygpImages2024,
+  midohio2024: midohioImages2024,
 };
 
 function Gallery() {
@@ -74,6 +84,11 @@ function Gallery() {
         <option value="brickyard4002024">2024 Brickyard 400</option>
         <option value="imsaindy2024">2024 IMSA Battle on the Bricks</option>
         <option value="indy8hour2024">2024 Indy 8 Hour</option>
+        <option value="longbeach2024">2024 Long Beach Grand Prix</option>
+        <option value="nashville2024">2024 Nashville Music City Grand Prix</option>
+        <option value="roadamerica2024">2024 Road America</option>
+        <option value="indygp2024">2024 Indy GP</option>
+        <option value="midohio2024">2024 Mid-Ohio</option>
 
 
 
