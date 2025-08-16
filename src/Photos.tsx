@@ -158,9 +158,9 @@ function Gallery() {
         <div className="back-button-container">
           <button
             className="back-button"
-            onClick={() => setSelectedFolder(null)}
+            onClick={() => setSelectedFolder(null)} // Or use a Link if routing is implemented
           >
-            Back to Albums
+            Back
           </button>
         </div>
         <h1 className="lightgallery-title">{selectedGallery?.label}</h1>

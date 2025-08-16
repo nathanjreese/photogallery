@@ -170,6 +170,7 @@
   }
 
   .thumbnail {
+    padding-bottom: 10px;
     width: 18em; /* Adjust thumbnail size for smaller devices */
   }
 
@@ -208,7 +209,7 @@
   }
 
   .thumbnail {
-    width: 100%; /* Full width for mobile devices */
+    width: 45%; /* Full width for mobile devices */
   }
 
   .lg-outer::after {
@@ -218,25 +219,29 @@
   }
 }
 
-/* Back button container */
+/* Floating back button */
 .back-button-container {
-  text-align: center; /* Align the button to the left */
-
+  position: fixed; /* Fix the button to the viewport */
+  bottom: 15px; /* Distance from the bottom of the viewport */
+  right: 15px; /* Distance from the right of the viewport */
+  z-index: 1000; /* Ensure it appears above other elements */
 }
 
 .back-button {
   display: inline-block;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  padding: 0.5rem 1rem; /* Smaller padding */
+  font-size: 0.9rem; /* Smaller font size */
   font-weight: bold;
   color: #fff;
-  background-color: #007bff;
+  background-color: #007bff; /* Blue background */
   border: none;
-  border-radius: 4px;
+  border-radius: 50px; /* Rounded button */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .back-button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight zoom effect */
 }
