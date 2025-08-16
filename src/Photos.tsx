@@ -65,79 +65,79 @@ const galleriesByYear: Record<string, { value: string; label: string; cover: str
         {
             value: "indygp2025",
             label: "2025 Sonsio GP",
-            cover: Object.values(indyGpImages2025).find(img => img.default.includes("IMG_7751.JPG"))?.default || Object.values(indyGpImages2025)[0]?.default
+            cover: Object.values(indyGpImages2025).find(img => img.default.includes("IMG_7751"))?.default || Object.values(indyGpImages2025)[0]?.default
         },
         {
             value: "indy5002025",
             label: "2025 Indianapolis 500",
-            cover: Object.values(indy500Images2025).find(img => img.default.includes("IMG_8879.JPG"))?.default || Object.values(indy500Images2025)[0]?.default
+            cover: Object.values(indy500Images2025).find(img => img.default.includes("IMG_8879"))?.default || Object.values(indy500Images2025)[0]?.default
         },
         {
             value: "gateway2025",
             label: "2025 Bommarito Auto Group 500",
-            cover: Object.values(gatewayImages2025).find(img => img.default.includes("IMG_3322.JPG"))?.default || Object.values(gatewayImages2025)[0]?.default
+            cover: Object.values(gatewayImages2025).find(img => img.default.includes("IMG_3322"))?.default || Object.values(gatewayImages2025)[0]?.default
         },
         {
             value: "brickyard4002025",
             label: "2025 Brickyard 400",
-            cover: Object.values(brickyard400Images2025).find(img => img.default.includes("IMG_4873.JPG"))?.default || Object.values(brickyard400Images2025)[0]?.default
+            cover: Object.values(brickyard400Images2025).find(img => img.default.includes("IMG_4873"))?.default || Object.values(brickyard400Images2025)[0]?.default
         }
     ],
     "2024": [
         {
             value: "stpete2024",
             label: "2024 GP of St Pete",
-            cover: Object.values(stpeteImages2024).find(img => img.default.includes("IMG_1609.JPG"))?.default || Object.values(stpeteImages2024)[0]?.default
+            cover: Object.values(stpeteImages2024).find(img => img.default.includes("IMG_1609"))?.default || Object.values(stpeteImages2024)[0]?.default
         },
         {
             value: "longbeach2024",
             label: "2024 Acura GP of Long Beach",
-            cover: Object.values(longbeachImages2024).find(img => img.default.includes("IMG_5024.JPG"))?.default || Object.values(longbeachImages2024)[0]?.default
+            cover: Object.values(longbeachImages2024).find(img => img.default.includes("IMG_5024"))?.default || Object.values(longbeachImages2024)[0]?.default
         },
         {
             value: "indygp2024",
             label: "2024 Sonsio GP",
-            cover: Object.values(indygpImages2024).find(img => img.default.includes("IMG_5336.JPG"))?.default || Object.values(indygpImages2024)[0]?.default
+            cover: Object.values(indygpImages2024).find(img => img.default.includes("IMG_5336"))?.default || Object.values(indygpImages2024)[0]?.default
         },
         {
             value: "indy5002024",
             label: "2024 Indianapolis 500",
-            cover: Object.values(indy500Images2024).find(img => img.default.includes("IMG_6177.JPG"))?.default || Object.values(indy500Images2024)[0]?.default
+            cover: Object.values(indy500Images2024).find(img => img.default.includes("IMG_6177"))?.default || Object.values(indy500Images2024)[0]?.default
         },
         {
             value: "roadamerica2024",
             label: "2024 Xpel GP at Road America",
-            cover: Object.values(roadamericaImages2024).find(img => img.default.includes("IMG_8534.JPG"))?.default || Object.values(roadamericaImages2024)[0]?.default
+            cover: Object.values(roadamericaImages2024).find(img => img.default.includes("IMG_8534"))?.default || Object.values(roadamericaImages2024)[0]?.default
         },
         {
             value: "midohio2024",
             label: "2024 Honda Indy 200 at Mid-Ohio",
-            cover: Object.values(midohioImages2024).find(img => img.default.includes("Pato2.JPG"))?.default || Object.values(midohioImages2024)[0]?.default
+            cover: Object.values(midohioImages2024).find(img => img.default.includes("Pato2"))?.default || Object.values(midohioImages2024)[0]?.default
         },
         {
             value: "brickyard4002024",
             label: "2024 Brickyard 400",
-            cover: Object.values(brickyard400Images2024).find(img => img.default.includes("IMG_0048.JPG"))?.default || Object.values(brickyard400Images2024)[0]?.default
+            cover: Object.values(brickyard400Images2024).find(img => img.default.includes("IMG_0048"))?.default || Object.values(brickyard400Images2024)[0]?.default
         },
         {
             value: "gateway2024",
             label: "2024 Bommarito Auto Group 500",
-            cover: Object.values(gatewayImages2024).find(img => img.default.includes("IMG_1699.JPG"))?.default || Object.values(gatewayImages2024)[0]?.default
+            cover: Object.values(gatewayImages2024).find(img => img.default.includes("IMG_1699"))?.default || Object.values(gatewayImages2024)[0]?.default
         },
         {
             value: "nashville2024",
             label: "2024 Nashville Music City Grand Prix",
-            cover: Object.values(nashvilleImages2024).find(img => img.default.includes("IMG_9999.JPG"))?.default || Object.values(nashvilleImages2024)[0]?.default
+            cover: Object.values(nashvilleImages2024).find(img => img.default.includes("IMG_9999"))?.default || Object.values(nashvilleImages2024)[0]?.default
         },
         {
             value: "imsaindy2024",
             label: "2024 IMSA Battle on the Bricks",
-            cover: Object.values(imsaindyImages2024).find(img => img.default.includes("IMG_2611.JPG"))?.default || Object.values(imsaindyImages2024)[0]?.default
+            cover: Object.values(imsaindyImages2024).find(img => img.default.includes("IMG_2611"))?.default || Object.values(imsaindyImages2024)[0]?.default
         },
         {
             value: "indy8hour2024",
             label: "2024 Indianapolis 8 Hour",
-            cover: Object.values(indy8hourImages2024).find(img => img.default.includes("IMG_2816.JPG"))?.default || Object.values(indy8hourImages2024)[0]?.default
+            cover: Object.values(indy8hourImages2024).find(img => img.default.includes("IMG_2816"))?.default || Object.values(indy8hourImages2024)[0]?.default
         }
     ]
 };
