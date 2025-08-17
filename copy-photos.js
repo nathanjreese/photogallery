@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
-const sourceDir = path.join(__dirname, 'src', 'Photos');
-const destDir = path.join(__dirname, 'dist', 'Photos');
+const sourceDir = path.join(process.cwd(), 'src', 'Photos');
+const destDir = path.join(process.cwd(), 'dist', 'Photos');
 
 function copyPhotos() {
   if (!fs.existsSync(sourceDir)) {
