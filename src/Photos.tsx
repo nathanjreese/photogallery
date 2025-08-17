@@ -191,30 +191,41 @@ function Gallery() {
   }
 
   return (
-    <div className="album-links">
-      {Object.entries(galleriesByYear)
-        .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
-        .map(([year, galleries]) => (
-          <div key={year}>
-            <h2>{year}</h2>
-            <div className="albums">
-              {galleries.map((gallery) => (
-                <div
-                  key={gallery.value}
-                  className="album"
-                  onClick={() => setSelectedFolder(gallery.value)}
-                >
-                  <img
-                    src={gallery.cover} // Use the cover property for the album thumbnail
-                    alt={gallery.label}
-                    className="album-thumbnail"
-                  />
-                  <p>{gallery.label}</p> {/* Text overlay */}
-                </div>
-              ))}
+    <div>
+      {/* Add the picture at the top of the page */}
+      <div className="top-image-container">
+        <img
+          src="./Photos/IMG_7796.JPG"
+          alt="Top of the page"
+          className="top-image"
+        />
+      </div>
+
+      <div className="album-links">
+        {Object.entries(galleriesByYear)
+          .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
+          .map(([year, galleries]) => (
+            <div key={year}>
+              <h2>{year}</h2>
+              <div className="albums">
+                {galleries.map((gallery) => (
+                  <div
+                    key={gallery.value}
+                    className="album"
+                    onClick={() => setSelectedFolder(gallery.value)}
+                  >
+                    <img
+                      src={gallery.cover} // Use the cover property for the album thumbnail
+                      alt={gallery.label}
+                      className="album-thumbnail"
+                    />
+                    <p>{gallery.label}</p> {/* Text overlay */}
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+      </div>
     </div>
   );
 }
