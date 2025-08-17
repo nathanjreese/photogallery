@@ -38,7 +38,7 @@
   border: 1px solid #ccc;
 }
 .lg-outer::after {
-  content: "© IndyNathan"; /* 🔹 Change to your brand name */
+  content: "© IndyNathanf"; /* 🔹 Change to your brand name */
   position: absolute;
   bottom: 20px; /* Default position for larger screens */
   left: 20px; /* Always 20px from the left */
@@ -229,8 +229,8 @@
 
 .back-button {
   display: inline-block;
-  padding: 0.5rem 1rem; /* Smaller padding */
-  font-size: 0.9rem; /* Smaller font size */
+  padding: 0.5rem 1rem; /* Default padding */
+  font-size: 0.9rem; /* Default font size */
   font-weight: bold;
   color: #fff;
   background-color: #007bff; /* Blue background */
@@ -244,4 +244,12 @@
 .back-button:hover {
   background-color: #0056b3; /* Darker blue on hover */
   transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Larger back button for desktop */
+@media (min-width: 1024px) {
+  .back-button {
+    padding: 0.75rem 1.5rem; /* Increase padding for larger screens */
+    font-size: 1.1rem; /* Increase font size for larger screens */
+  }
 }

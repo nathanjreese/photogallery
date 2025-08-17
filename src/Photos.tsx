@@ -163,7 +163,7 @@ function Gallery() {
             Back
           </button>
         </div>
-        <h1 className="lightgallery-title">{selectedGallery?.label}</h1>
+        <h5 className="lightgallery-title">{selectedGallery?.label}</h5>
         <LightGallery
           onInit={(detail) => {
             console.log('lightGallery initialized');

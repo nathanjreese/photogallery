@@ -2,7 +2,11 @@
 .lg-outer::after {
   content: "© IndyNathan"; /* Change to your text */
   position: absolute;
-  bottom: calc(29% - 6vw); /* center vertically */
+  bottom: calc(6rem); /* center vertically */
+  
+  @media (max-width: 768px) {
+    bottom: calc(13rem); /* adjust for mobile */
+  }
   left: 50%;
   transform: translate(-50%, -50%) rotate(-0deg); /* center + diagonal */
   color: rgba(255, 255, 255, 0.2); /* semi-transparent white */
