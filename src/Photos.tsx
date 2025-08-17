@@ -195,7 +195,7 @@ function Gallery() {
       {/* Add the picture at the top of the page */}
       <div className="top-image-container">
         <img
-          src="./src/Photos/IMG_7796.JPG"
+          src="./Photos/IMG_7796.JPG"
           alt="Top of the page"
           className="top-image"
         />

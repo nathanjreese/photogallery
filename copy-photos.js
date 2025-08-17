@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 const sourceDir = path.join(process.cwd(), 'src', 'Photos');
-const destDir = path.join(process.cwd(), 'dist', 'Photos');
+const destDir = path.join(process.cwd(), 'dist', 'assets/Photos');
 
 function copyPhotosRecursive(source, destination) {
   if (!fs.existsSync(source)) {
