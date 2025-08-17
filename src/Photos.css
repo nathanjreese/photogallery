@@ -181,7 +181,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 490px) {
   .albums {
     grid-template-columns: 1fr; /* 1 album per row for mobile devices */
   }
