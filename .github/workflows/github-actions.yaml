@@ -26,7 +26,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y python3-pip
           pip install gdown
-          gdown --folder https://drive.google.com/drive/folders/${{ secrets.GDRIVE_FOLDER_ID }}?usp=sharing -O ./home/runner/work/photogallery/photogallery/assets
+          gdown --folder https://drive.google.com/drive/folders/${{ secrets.GDRIVE_FOLDER_ID }}?usp=sharing -O /home/runner/work/photogallery/photogallery/assets
         env:
           GDRIVE_FOLDER_ID: ${{ secrets.GDRIVE_FOLDER_ID }}
 
