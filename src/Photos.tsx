@@ -162,6 +162,7 @@ function Gallery() {
           >
             Back
           </button>
+        </div>
         <h5 className="lightgallery-title">{selectedGallery?.label}</h5>
         <LightGallery
           onInit={(detail) => {
@@ -190,6 +191,7 @@ function Gallery() {
   }
 
   return (
+    <div>
       <div className="album-links">
         {Object.entries(galleriesByYear)
           .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
