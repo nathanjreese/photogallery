@@ -87,7 +87,7 @@ const galleriesByYear: Record<string, { value: string; label: string; cover: str
         {
             value: "stpete2024",
             label: "2024 GP of St Pete",
-            cover: Object.values(stpeteImages2024).find(img => img.default.includes("IMG_1609"))?.default || Object.values(stpeteImages2024)[0]?.default
+            cover: Object.values(stpeteImages2024).find(img => img.default.includes("IMG_0147"))?.default || Object.values(stpeteImages2024)[0]?.default
         },
         {
             value: "longbeach2024",
