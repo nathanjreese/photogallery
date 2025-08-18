@@ -162,7 +162,6 @@ function Gallery() {
           >
             Back
           </button>
-        </div>
         <h5 className="lightgallery-title">{selectedGallery?.label}</h5>
         <LightGallery
           onInit={(detail) => {
