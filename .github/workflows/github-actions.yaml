@@ -29,6 +29,7 @@ jobs:
           gdown --folder https://drive.google.com/drive/folders/${{ secrets.GDRIVE_FOLDER_ID }}?usp=sharing --remaining-ok -O ./src/Photos
           for file in ./src/Photos/*.zip; do
             unzip -qo "$file" -d ./src/Photos
+            rm -f "$file"
           done
           find ./src/Photos -name "__MACOSX" -exec rm -rf {} +
         env:
