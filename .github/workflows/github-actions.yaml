@@ -26,7 +26,8 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y python3-pip
           pip install gdown
-          gdown --folder https://drive.google.com/drive/folders/${{ secrets.GDRIVE_FOLDER_ID }}?usp=sharing -O ./src/Photos
+          gdown --folder https://drive.google.com/drive/folders/${{ secrets.GDRIVE_FOLDER_ID }}?usp=sharing --remaining-ok -O ./src/Photos
+          unzip ./src/Photos/*.zip -d ./src/Photos
         env:
           GDRIVE_FOLDER_ID: ${{ secrets.GDRIVE_FOLDER_ID }}
 
