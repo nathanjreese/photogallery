@@ -21,13 +21,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Download zipped photos from Google Drive 📂
+      - name: Download pictures from Google Drive 📂
         run: |
           sudo apt-get update
-          sudo apt-get install -y python3-pip unzip
+          sudo apt-get install -y python3-pip
           pip install gdown
-          gdown https://drive.google.com/uc?id=${{ secrets.GDRIVE_FOLDER_ID }} 
-          unzip *.zip -d ./src/Photos
+          gdown --folder https://drive.google.com/drive/folders/${{ secrets.GDRIVE_FOLDER_ID }}?usp=sharing -O ./src/Photos
         env:
           GDRIVE_FOLDER_ID: ${{ secrets.GDRIVE_FOLDER_ID }}
 
