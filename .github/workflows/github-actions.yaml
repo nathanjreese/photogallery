@@ -10,6 +10,17 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Download pictures from Google Drive 📂
         run: |
           sudo apt-get update
@@ -19,9 +30,6 @@ jobs:
         env:
           GDRIVE_FOLDER_ID: ${{ secrets.GDRIVE_FOLDER_ID }}
 
-      - name: Install dependencies
-        run: npm ci
-
       - name: Build 🔧
         run: npm run build -- --mode production
 
@@ -29,7 +37,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist
-          branch: main
-
-      - name: Serve Locally (Optional)
-        run: npx serve dist
+          branch: gh-pages
