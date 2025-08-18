@@ -28,6 +28,7 @@ jobs:
           pip install gdown
           gdown --folder https://drive.google.com/drive/folders/${{ secrets.GDRIVE_FOLDER_ID }}?usp=sharing --remaining-ok -O ./src/Photos
           unzip ./src/Photos/*.zip -d ./src/Photos
+          find ./src/Photos -name "__MACOSX" -exec rm -rf {} +
         env:
           GDRIVE_FOLDER_ID: ${{ secrets.GDRIVE_FOLDER_ID }}
 
@@ -40,13 +41,13 @@ jobs:
           folder: dist
           branch: gh-pages
 
-      - name: Remove photos from gh-pages branch
-        run: |
-          git clone --branch gh-pages https://github.com/${{ github.repository }} gh-pages
-          cd gh-pages
-          rm -rf Photos
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add .
-          git commit -m "Remove photos after deployment"
-          git push
+      # - name: Remove photos from gh-pages branch
+      #   run: |
+      #     git clone --branch gh-pages https://github.com/${{ github.repository }} gh-pages
+      #     cd gh-pages
+      #     rm -rf Photos
+      #     git config user.name "GitHub Actions"
+      #     git config user.email "actions@github.com"
+      #     git add .
+      #     git commit -m "Remove photos after deployment"
+      #     git push
