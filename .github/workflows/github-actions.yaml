@@ -61,6 +61,11 @@ jobs:
       - name: Build 🔧
         run: npm run build -- --mode production
 
+      - name: Configure git for large files
+        run: |
+          git config --global http.postBuffer 524288000
+          git config --global http.maxRequestBuffer 100M
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
