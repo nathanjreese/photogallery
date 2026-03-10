@@ -26,7 +26,25 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y python3-pip
           pip install gdown
-          gdown --folder https://drive.google.com/drive/folders/${{ secrets.GDRIVE_FOLDER_ID }}?usp=sharing --remaining-ok -O ./src/Photos
+          
+          # Retry loop with exponential backoff
+          max_attempts=3
+          attempt=1
+          while [ $attempt -le $max_attempts ]; do
+            echo "Download attempt $attempt of $max_attempts"
+            if gdown --folder https://drive.google.com/drive/folders/${{ secrets.GDRIVE_FOLDER_ID }}?usp=sharing --remaining-ok -O ./src/Photos; then
+              echo "Download successful"
+              break
+            else
+              if [ $attempt -lt $max_attempts ]; then
+                delay=$((60 * attempt))
+                echo "Download failed, waiting ${delay} seconds before retry..."
+                sleep $delay
+              fi
+            fi
+            attempt=$((attempt + 1))
+          done
+          
           for file in ./src/Photos/*2026*.zip; do
             unzip -qo "$file" -d ./src/Photos
             rm -f "$file"
