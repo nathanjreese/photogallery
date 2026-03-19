@@ -16,6 +16,8 @@ import lgZoom from 'lightgallery/plugins/zoom';
 
 // Import images from folders eagerly
 const stpeteImages2026 = import.meta.glob<{ default: string }>('./Photos/2026stpete/*.{jpg,JPG,png}', { eager: true });
+const arlingtonImages2026 = import.meta.glob<{ default: string }>('./Photos/2026arlington/*.{jpg,JPG,png}', { eager: true });
+
 
 const stpeteImages2025 = import.meta.glob<{ default: string }>('./Photos/2025stpete/*.{jpg,JPG,png}', { eager: true });
 const indy500Images2025 = import.meta.glob<{ default: string }>('./Photos/2025indy500/*.{jpg,JPG,png}', { eager: true });
@@ -38,7 +40,7 @@ const stpeteImages2024 = import.meta.glob<{ default: string }>('./Photos/2024stp
 // Map folder names to their images
 const folders: Record<string, Record<string, { default: string }>> = {
   stpete2026: stpeteImages2026,
-  
+  arlington2026: arlingtonImages2026,
   stpete2025: stpeteImages2025,
   indy5002025: indy500Images2025,
   indygp2025: indyGpImages2025,
@@ -65,6 +67,11 @@ const galleriesByYear: Record<string, { value: string; label: string; cover: str
             value: "stpete2026",
             label: "2026 Firestone GP of St Pete",
             cover: Object.values(stpeteImages2026).find(img => img.default.includes("PalouWin"))?.default || Object.values(stpeteImages2026)[0]?.default
+        },
+        {
+            value: "arlington2026",
+            label: "2026 Music City Grand Prix",
+            cover: Object.values(arlingtonImages2026).find(img => img.default.includes("PalouWin"))?.default || Object.values(arlingtonImages2026)[0]?.default
         }
   ],
   "2025": [
