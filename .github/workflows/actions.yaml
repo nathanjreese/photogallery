@@ -1,4 +1,4 @@
-# Simple workflow for deploying static Photo content to GitHub Pages
+# Simple workflow for deploying static Photos to GitHub Pages
 name: Deploy static content to Pages
 
 on:
