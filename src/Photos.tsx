@@ -71,7 +71,7 @@ const galleriesByYear: Record<string, { value: string; label: string; cover: str
         {
             value: "arlington2026",
             label: "2026 Music City Grand Prix",
-            cover: Object.values(arlingtonImages2026).find(img => img.default.includes("PalouWin"))?.default || Object.values(arlingtonImages2026)[0]?.default
+            cover: Object.values(arlingtonImages2026).find(img => img.default.includes("IMG_1313"))?.default || Object.values(arlingtonImages2026)[0]?.default
         }
   ],
   "2025": [
