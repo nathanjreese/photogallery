@@ -24,6 +24,8 @@ const indy500Images2025 = import.meta.glob<{ default: string }>('./Photos/2025in
 const indyGpImages2025 = import.meta.glob<{ default: string }>('./Photos/2025indygp/*.{jpg,JPG,png}', { eager: true });
 const gatewayImages2025 = import.meta.glob<{ default: string }>('./Photos/2025gateway/*.{jpg,JPG,png}', { eager: true });
 const brickyard400Images2025 = import.meta.glob<{ default: string }>('./Photos/2025brickyard400/*.{jpg,JPG,png}', { eager: true });
+const milwaukeeImages2025 = import.meta.glob<{ default: string }>('./Photos/2025milwaukee/*.{jpg,JPG,png}', { eager: true });
+const imsaIndyImages2025 = import.meta.glob<{ default: string }>('./Photos/2025imsaindy/*.{jpg,JPG,png}', { eager: true });
 
 const indy500Images2024 = import.meta.glob<{ default: string }>('./Photos/2024indy500/*.{jpg,JPG,png}', { eager: true });
 const gatewayImages2024 = import.meta.glob<{ default: string }>('./Photos/2024gateway/*.{jpg,JPG,png}', { eager: true });
@@ -46,6 +48,8 @@ const folders: Record<string, Record<string, { default: string }>> = {
   indygp2025: indyGpImages2025,
   brickyard4002025: brickyard400Images2025,
   gateway2025: gatewayImages2025,
+  milwaukee2025: milwaukeeImages2025,
+  imsaindy2025: imsaIndyImages2025,
 
   indy5002024: indy500Images2024,
   gateway2024: gatewayImages2024,
@@ -99,6 +103,16 @@ const galleriesByYear: Record<string, { value: string; label: string; cover: str
             value: "brickyard4002025",
             label: "2025 Brickyard 400",
             cover: Object.values(brickyard400Images2025).find(img => img.default.includes("IMG_4873"))?.default || Object.values(brickyard400Images2025)[0]?.default
+        },
+        {
+            value: "milwaukee2025",
+            label: "2025 Milwaukee IndyFest",
+            cover: Object.values(milwaukeeImages2025).find(img => img.default.includes("5883"))?.default || Object.values(milwaukeeImages2025)[0]?.default
+        },
+        {
+            value: "imsaindy2025",
+            label: "2025 IMSA Battle on the Bricks",
+            cover: Object.values(imsaIndyImages2025).find(img => img.default.includes("IMG_5983"))?.default || Object.values(imsaIndyImages2025)[0]?.default
         }
     ],
     "2024": [
