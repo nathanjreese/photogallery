@@ -71,3 +71,9 @@ jobs:
         with:
           folder: dist
           branch: gh-pages
+
+      - name: Trigger GitHub Pages deployment 📄
+        if: github.ref == 'refs/heads/main'
+        run: gh api repos/${{ github.repository }}/pages/builds -X POST
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
