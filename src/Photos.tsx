@@ -14,11 +14,11 @@ import './Watermark.css';
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
 
-// Import images from folders eagerly
+// 2026 images
 const stpeteImages2026 = import.meta.glob<{ default: string }>('./Photos/2026stpete/*.{jpg,JPG,png}', { eager: true });
 const arlingtonImages2026 = import.meta.glob<{ default: string }>('./Photos/2026arlington/*.{jpg,JPG,png}', { eager: true });
 
-
+//2025 images
 const stpeteImages2025 = import.meta.glob<{ default: string }>('./Photos/2025stpete/*.{jpg,JPG,png}', { eager: true });
 const indy500Images2025 = import.meta.glob<{ default: string }>('./Photos/2025indy500/*.{jpg,JPG,png}', { eager: true });
 const indyGpImages2025 = import.meta.glob<{ default: string }>('./Photos/2025indygp/*.{jpg,JPG,png}', { eager: true });
@@ -27,6 +27,7 @@ const brickyard400Images2025 = import.meta.glob<{ default: string }>('./Photos/2
 const milwaukeeImages2025 = import.meta.glob<{ default: string }>('./Photos/2025milwaukee/*.{jpg,JPG,png}', { eager: true });
 const imsaIndyImages2025 = import.meta.glob<{ default: string }>('./Photos/2025imsaindy/*.{jpg,JPG,png}', { eager: true });
 
+// 2024 images
 const indy500Images2024 = import.meta.glob<{ default: string }>('./Photos/2024indy500/*.{jpg,JPG,png}', { eager: true });
 const gatewayImages2024 = import.meta.glob<{ default: string }>('./Photos/2024gateway/*.{jpg,JPG,png}', { eager: true });
 const brickyard400Images2024 = import.meta.glob<{ default: string }>('./Photos/2024brickyard400/*.{jpg,JPG,png}', { eager: true });
