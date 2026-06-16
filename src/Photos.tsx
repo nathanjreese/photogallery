@@ -17,6 +17,9 @@ import lgZoom from 'lightgallery/plugins/zoom';
 // 2026 images
 const stpeteImages2026 = import.meta.glob<{ default: string }>('./Photos/2026stpete/*.{jpg,JPG,png}', { eager: true });
 const arlingtonImages2026 = import.meta.glob<{ default: string }>('./Photos/2026arlington/*.{jpg,JPG,png}', { eager: true });
+const indygpImages2026 = import.meta.glob<{ default: string }>('./Photos/2026indygpe/*.{jpg,JPG,png}', { eager: true });
+const indy500Images2026 = import.meta.glob<{ default: string }>('./Photos/2026indy500/*.{jpg,JPG,png}', { eager: true });
+
 
 //2025 images
 const stpeteImages2025 = import.meta.glob<{ default: string }>('./Photos/2025stpete/*.{jpg,JPG,png}', { eager: true });
@@ -44,6 +47,9 @@ const stpeteImages2024 = import.meta.glob<{ default: string }>('./Photos/2024stp
 const folders: Record<string, Record<string, { default: string }>> = {
   stpete2026: stpeteImages2026,
   arlington2026: arlingtonImages2026,
+  indygp2026: indygpImages2026,
+  indy5002026: indy500Images2026,
+
   stpete2025: stpeteImages2025,
   indy5002025: indy500Images2025,
   indygp2025: indyGpImages2025,
@@ -77,6 +83,16 @@ const galleriesByYear: Record<string, { value: string; label: string; cover: str
             value: "arlington2026",
             label: "2026 Grand Prix of Arlington",
             cover: Object.values(arlingtonImages2026).find(img => img.default.includes("IMG_1313"))?.default || Object.values(arlingtonImages2026)[0]?.default
+        },
+        {
+            value: "indygp2026",
+            label: "2026 Sonsio GP",
+            cover: Object.values(indygpImages2026).find(img => img.default.includes("IMG_2170"))?.default || Object.values(indygpImages2026)[0]?.default
+        },
+        {
+            value: "indy5002026",
+            label: "2026 Indianapolis 500",
+            cover: Object.values(indy500Images2026).find(img => img.default.includes("IMG_3360"))?.default || Object.values(indy500Images2026)[0]?.default
         }
   ],
   "2025": [
