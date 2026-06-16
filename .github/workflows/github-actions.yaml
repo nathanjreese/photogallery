@@ -1,6 +1,8 @@
 name: IndyCar secrets
 run-name: IndyCar Driver App 🚀
 on: [push]
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 permissions:
   contents: write
 jobs:
@@ -8,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
 
       - name: Cache node modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -25,25 +27,26 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y python3-pip
-          pip install gdown
+          python3 -m pip install --user gdown
+          mkdir -p ./src/Photos
           
           # Download 2024 photos
           echo "Downloading 2024 photos..."
-          gdown --folder https://drive.google.com/drive/folders/${{ secrets.GDRIVE_FOLDER_ID_2024 }}?usp=sharing --remaining-ok -O ./src/Photos || true
+          python3 -m gdown --folder https://drive.google.com/drive/folders/${{ secrets.GDRIVE_FOLDER_ID_2024 }}?usp=sharing -O ./src/Photos || true
           
           echo "Waiting 30 seconds before next download..."
           sleep 30
           
           # Download 2025 photos
           echo "Downloading 2025 photos..."
-          gdown --folder https://drive.google.com/drive/folders/${{ secrets.GDRIVE_FOLDER_ID_2025 }}?usp=sharing --remaining-ok -O ./src/Photos || true
+          python3 -m gdown --folder https://drive.google.com/drive/folders/${{ secrets.GDRIVE_FOLDER_ID_2025 }}?usp=sharing -O ./src/Photos || true
           
           echo "Waiting 30 seconds before next download..."
           sleep 30
           
           # Download 2026 photos
           echo "Downloading 2026 photos..."
-          gdown --folder https://drive.google.com/drive/folders/${{ secrets.GDRIVE_FOLDER_ID_2026 }}?usp=sharing --remaining-ok -O ./src/Photos || true
+          python3 -m gdown --folder https://drive.google.com/drive/folders/${{ secrets.GDRIVE_FOLDER_ID_2026 }}?usp=sharing -O ./src/Photos || true
           
           # Find and extract all zip files (search recursively)
           echo "Looking for zip files..."
