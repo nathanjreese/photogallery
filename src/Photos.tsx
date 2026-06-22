@@ -17,7 +17,7 @@ import lgZoom from 'lightgallery/plugins/zoom';
 // 2026 images
 const stpeteImages2026 = import.meta.glob<{ default: string }>('./Photos/2026stpete/*.{jpg,JPG,png}', { eager: true });
 const arlingtonImages2026 = import.meta.glob<{ default: string }>('./Photos/2026arlington/*.{jpg,JPG,png}', { eager: true });
-const indygpImages2026 = import.meta.glob<{ default: string }>('./Photos/2026indygpe/*.{jpg,JPG,png}', { eager: true });
+const indygpImages2026 = import.meta.glob<{ default: string }>('./Photos/2026indygp/*.{jpg,JPG,png}', { eager: true });
 const indy500Images2026 = import.meta.glob<{ default: string }>('./Photos/2026indy500/*.{jpg,JPG,png}', { eager: true });
 
 
